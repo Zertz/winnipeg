@@ -1,42 +1,86 @@
 html, body {
+  color: #E3F2FD;
+  font-family:
+  /* 1 */ -apple-system, BlinkMacSystemFont,
+  /* 2 */ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+  /* 3 */ "Helvetica Neue", sans-serif;
   font-size: 18px;
+  letter-spacing: 1px;
   width: 100%;
   height: 100%;
 }
 
-h1, h2, p {
-  margin: 0;
-}
-
-h1 {
-  font-size: 2em;
-  margin-bottom: 1em;
-}
-
-h2 {
-  font-size: 1.5em;
-}
-
-p {
-  font-size: 1em;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.bg {
+  transform: rotate(30deg);
   width: 100%;
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.header {
-  margin-bottom: 2em;
+.bg > div {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
-.content {
-  margin-bottom: 2em;
+.bg > .bg-1, .bg > .bg-5, .bg > .bg-9 {
+  background-color: #2196F3;
+}
+
+.bg > .bg-2, .bg > .bg-6, .bg > .bg-7 {
+  background-color: #42A5F5;
+}
+
+.bg > .bg-3, .bg > .bg-4, .bg > .bg-8 {
+  background-color: #1E88E5;
+}
+
+.bg > .bg-1 {
+  top: -100%;
+  left: -100%;
+}
+
+.bg > .bg-2 {
+  top: -100%;
+  left: 0%;
+}
+
+.bg > .bg-3 {
+  top: -100%;
+  left: 100%;
+}
+
+.bg > .bg-4 {
+  top: 0%;
+  left: -100%;
+}
+
+.bg > .bg-5 {
+  top: 0%;
+  left: 0%;
+}
+
+.bg > .bg-6 {
+  top: 0%;
+  left: 100%;
+}
+
+.bg > .bg-7 {
+  top: 100%;
+  left: -100%;
+}
+
+.bg > .bg-8 {
+  top: 100%;
+  left: 0%;
+}
+
+.bg > .bg-9 {
+  top: 100%;
+  left: 100%;
 }
 
 form {
@@ -44,5 +88,62 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 2em;
   text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+form input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 0.125em;
+  font-size: 1.5em;
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  padding: 0.5em 0.75em;
+  width: 90%;
+}
+
+form input:first-child {
+  margin-bottom: 1em;
+  max-width: 30em;
+}
+
+form input:last-child {
+  color: #1E88E5;
+  margin-bottom: 1em;
+  max-width: 10em;
+}
+
+form input:last-child:hover {
+  background-color: #E3F2FD;
+  cursor: pointer;
+}
+
+footer {
+  padding: 1em;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+a {
+  color: #E3F2FD;
+  font-size: 0.75em;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #BBDEFB;
 }
