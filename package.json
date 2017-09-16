@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "dev": "nodemon index",
+    "lint": "standard --fix",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/Zertz/winnipeg/issues"
   },
-  "homepage": "https://github.com/Zertz/winnipeg#readme"
+  "homepage": "https://github.com/Zertz/winnipeg#readme",
+  "dependencies": {
+    "fastify": "^0.27.0",
+    "fastify-static": "^0.1.0",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1",
+    "standard": "^10.0.3"
+  }
 }
