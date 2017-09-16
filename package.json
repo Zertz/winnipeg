@@ -1,0 +1,19 @@
+{
+  "name": "winnipeg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zertz/winnipeg.git"
+  },
+  "author": "Pier-Luc Gendreau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zertz/winnipeg/issues"
+  },
+  "homepage": "https://github.com/Zertz/winnipeg#readme"
+}
