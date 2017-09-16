@@ -1,10 +1,10 @@
 const fastify = require('fastify')()
 const path = require('path')
 const shortid = require('shortid')
-const { URL } = require('url');
+const { URL } = require('url')
 
-const baseUrl = 'http://localhost:3000'
-const shortUrls = {};
+const baseUrl = process.env.WINNIPEG_BASE_URL || 'http://localhost:3000'
+const shortUrls = {}
 
 fastify.register(require('fastify-static'), {
   root: path.join(__dirname, 'public'),
@@ -25,7 +25,7 @@ fastify.route({
   schema: {
     params: {
       short: { type: 'string' }
-    },
+    }
   },
   handler: function (request, reply) {
     const url = shortUrls[request.params.short]

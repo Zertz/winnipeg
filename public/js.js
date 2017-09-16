@@ -5,11 +5,11 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
-    const response = await fetch('/', {
+    const response = await window.fetch('/', {
       method: 'POST',
       mode: 'same-origin',
       cache: 'no-cache',
-      headers: new Headers({
+      headers: new window.Headers({
         'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
@@ -18,6 +18,13 @@
     })
 
     const json = await response.json()
+    const short = form.querySelector('input[name="short"]')
+
+    input.value = ''
+
+    short.style.visibility = 'visible'
+    short.value = json.short
+    short.select()
 
     console.info(json)
   })

@@ -112,20 +112,27 @@ form input {
   width: 90%;
 }
 
-form input:first-child {
+form input[type="text"] {
   margin-bottom: 1em;
   max-width: 30em;
 }
 
-form input:last-child {
+form input[type="submit"] {
   color: #1E88E5;
   margin-bottom: 1em;
   max-width: 10em;
 }
 
-form input:last-child:hover {
+form input[type="submit"]:hover {
   background-color: #E3F2FD;
   cursor: pointer;
+}
+
+form input:last-child {
+  background-color: rgba(255, 255, 255, 0.001);
+  color: #BBDEFB;
+  text-align: center;
+  visibility: hidden;
 }
 
 footer {
