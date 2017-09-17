@@ -1,6 +1,7 @@
 (function () {
   const form = document.querySelector('form')
-  const input = form.querySelector('input[name="url"]')
+  const url = form.querySelector('input[name="url"]')
+  const short = form.querySelector('input[name="short"]')
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -16,14 +17,13 @@
         'Content-Type': 'application/json'
       }),
       body: JSON.stringify({
-        url: input.value
+        url: url.value
       })
     })
 
     const json = await response.json()
-    const short = form.querySelector('input[name="short"]')
 
-    input.value = ''
+    url.value = ''
 
     short.style.visibility = 'visible'
     short.value = json.short
