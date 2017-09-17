@@ -65,7 +65,6 @@ fastify.route({
       200: {
         type: 'object',
         properties: {
-          url: { type: 'string' },
           short: { type: 'string' }
         }
       }
@@ -79,7 +78,6 @@ fastify.route({
       shortUrls.set(shortUrl, url)
 
       reply.send({
-        url: url.href,
         short: `${baseUrl}/${shortUrl}`
       })
     } catch (err) {
