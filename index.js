@@ -33,7 +33,7 @@ fastify.route({
 
       if (url) {
         reply.code(302)
-        reply.header('Location', url.href)
+        reply.header('Location', url)
 
         return ''
       } else {
@@ -86,7 +86,7 @@ fastify.route({
       const url = new URL(request.body.url)
       const shortUrl = shortid.generate()
 
-      await storage.set(shortUrl, url)
+      await storage.set(shortUrl, url.href)
 
       return {
         short: `${baseUrl}/${shortUrl}`
