@@ -3,10 +3,10 @@ module.exports = function () {
 
   return {
     get (key) {
-      return map.get(key)
+      return Promise.resolve(map.get(key))
     },
     set (key, value) {
-      return map.set(key, value)
+      return Promise.resolve(map.set(key, value))
     }
   }
 }

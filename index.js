@@ -27,8 +27,8 @@ fastify.route({
       short: { type: 'string' }
     }
   },
-  handler: function (request, reply) {
-    const url = storage.get(request.params.short)
+  handler: async function (request, reply) {
+    const url = await storage.get(request.params.short)
 
     if (url) {
       reply.redirect(url.href)
@@ -70,12 +70,12 @@ fastify.route({
       }
     }
   },
-  handler: function (request, reply) {
+  handler: async function (request, reply) {
     try {
       const url = new URL(request.body.url)
       const shortUrl = shortid.generate()
 
-      storage.set(shortUrl, url)
+      await storage.set(shortUrl, url)
 
       reply.send({
         short: `${baseUrl}/${shortUrl}`
