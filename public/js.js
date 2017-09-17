@@ -5,6 +5,9 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
+    short.style.visibility = 'hidden'
+    short.value = ''
+
     const response = await window.fetch('/', {
       method: 'POST',
       mode: 'same-origin',
@@ -25,7 +28,5 @@
     short.style.visibility = 'visible'
     short.value = json.short
     short.select()
-
-    console.info(json)
   })
 })()
