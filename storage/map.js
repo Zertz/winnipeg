@@ -2,11 +2,13 @@ module.exports = function () {
   const map = new Map()
 
   return {
-    get (key) {
-      return Promise.resolve(map.get(key))
+    get (short) {
+      return Promise.resolve(map.get(short))
     },
-    set (key, value) {
-      return Promise.resolve(map.set(key, value))
+    set (short, url) {
+      map.set(short, url)
+
+      return Promise.resolve()
     }
   }
 }

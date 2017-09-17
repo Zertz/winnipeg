@@ -4,7 +4,7 @@ const shortid = require('shortid')
 const { URL } = require('url')
 
 const baseUrl = process.env.WINNIPEG_BASE_URL || 'http://localhost:3000'
-const storage = require('./storage/map')
+const storage = require('./storage/map')()
 
 fastify.register(require('fastify-static'), {
   root: path.join(__dirname, 'public'),
@@ -28,12 +28,23 @@ fastify.route({
     }
   },
   handler: async function (request, reply) {
-    const url = await storage.get(request.params.short)
+    try {
+      const url = await storage.get(request.params.short)
 
-    if (url) {
-      reply.redirect(url.href)
-    } else {
-      reply.code(404).send(new Error(':('))
+      if (url) {
+        reply.code(302)
+        reply.header('Location', url.href)
+
+        return ''
+      } else {
+        reply.code(404)
+
+        return new Error('Not Found')
+      }
+    } catch (err) {
+      reply.code(400)
+
+      return err
     }
   }
 })
@@ -77,11 +88,13 @@ fastify.route({
 
       await storage.set(shortUrl, url)
 
-      reply.send({
+      return {
         short: `${baseUrl}/${shortUrl}`
-      })
+      }
     } catch (err) {
-      reply.code(400).send(err)
+      reply.code(400)
+
+      return err
     }
   }
 })
