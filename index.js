@@ -4,7 +4,7 @@ const shortid = require('shortid')
 const { URL } = require('url')
 
 const baseUrl = process.env.WINNIPEG_BASE_URL || 'http://localhost:3000'
-const shortUrls = {}
+const shortUrls = new Map()
 
 fastify.register(require('fastify-static'), {
   root: path.join(__dirname, 'public'),
@@ -28,7 +28,7 @@ fastify.route({
     }
   },
   handler: function (request, reply) {
-    const url = shortUrls[request.params.short]
+    const url = shortUrls.get(request.params.short)
 
     if (url) {
       reply.redirect(url.href)
@@ -76,7 +76,7 @@ fastify.route({
       const url = new URL(request.body.url)
       const shortUrl = shortid.generate()
 
-      shortUrls[shortUrl] = url
+      shortUrls.set(shortUrl, url)
 
       reply.send({
         url: url.href,
