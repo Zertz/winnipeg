@@ -6,6 +6,8 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
+    url.readOnly = true;
+
     short.style.visibility = 'hidden'
     short.value = ''
 
@@ -23,6 +25,7 @@
 
     const json = await response.json()
 
+    url.readOnly = false;
     url.value = ''
 
     short.style.visibility = 'visible'
