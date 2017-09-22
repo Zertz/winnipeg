@@ -124,7 +124,7 @@ form {
   left: 0;
 }
 
-form input {
+form input, form button {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -144,13 +144,47 @@ form input[type="text"] {
   max-width: 30em;
 }
 
-form input[type="submit"] {
+form button[type="submit"] {
   color: #1E88E5;
   margin-bottom: 1em;
   max-width: 10em;
 }
 
-form input[type="submit"]:hover {
+form.loading button[type="submit"] {
+  position: relative;
+}
+
+form.loading button[type="submit"]:before, form.loading button[type="submit"]:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+form.loading button[type="submit"]:before {
+  background-image: radial-gradient(circle at center, rgba(227, 242, 253, 0.5), rgba(227, 242, 253, 0.25));
+}
+
+form.loading button[type="submit"]:after {
+  animation: loadingGradient 1s infinite;
+  background-color: #E3F2FD;
+}
+
+@keyframes loadingGradient {
+  0% {
+    opacity: 0.125;
+  }
+  50% {
+    opacity: 0.675;
+  }
+  100% {
+    opacity: 0.125;
+  }
+}
+
+form:not(.loading) button[type="submit"]:hover {
   background-color: #E3F2FD;
   cursor: pointer;
 }
