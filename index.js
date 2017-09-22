@@ -51,6 +51,14 @@ fastify.route({
 
 fastify.route({
   method: 'GET',
+  url: '/favicon.ico',
+  handler: function (request, reply) {
+    reply.sendFile('favicon.ico')
+  }
+})
+
+fastify.route({
+  method: 'GET',
   url: '/css.css',
   handler: function (request, reply) {
     reply.sendFile('css.css')
