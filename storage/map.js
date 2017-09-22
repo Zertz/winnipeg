@@ -3,7 +3,7 @@ module.exports = function () {
 
   return {
     get (short) {
-      return Promise.resolve(map.get(short))
+      return map.get(short)
     },
     set (short, url) {
       map.set(short, url)
