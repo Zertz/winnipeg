@@ -16,6 +16,19 @@ module.exports = function ({ accessKeyId, secretAccessKey, region, TableName }) 
         }
       }).promise()
 
+      if (result && result.Item) {
+        client.update({
+          TableName,
+          Key: {
+            short
+          },
+          UpdateExpression: 'set hits = hits + :inc',
+          ExpressionAttributeValues: {
+            ':inc': 1
+          }
+        }).promise().catch(console.error)
+      }
+
       return result.Item.url
     },
     set (short, url) {
