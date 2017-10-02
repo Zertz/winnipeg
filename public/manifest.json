@@ -1,0 +1,21 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "winnipeg",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "https://nipeg.win/",
+  "short_name": "winnipeg",
+  "theme_color": "transparent",
+  "description": "nipeg.win - make short links",
+  "orientation": "any",
+  "background_color": "transparent",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16"
+    }
+  ]
+}

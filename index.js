@@ -59,6 +59,22 @@ fastify.route({
 
 fastify.route({
   method: 'GET',
+  url: '/manifest.json',
+  handler: function (request, reply) {
+    reply.sendFile('manifest.json')
+  }
+})
+
+fastify.route({
+  method: 'GET',
+  url: '/offline.html',
+  handler: function (request, reply) {
+    reply.sendFile('offline.html')
+  }
+})
+
+fastify.route({
+  method: 'GET',
   url: '/css.css',
   handler: function (request, reply) {
     reply.sendFile('css.css')
@@ -70,6 +86,14 @@ fastify.route({
   url: '/js.js',
   handler: function (request, reply) {
     reply.sendFile('js.js')
+  }
+})
+
+fastify.route({
+  method: 'GET',
+  url: '/sw.js',
+  handler: function (request, reply) {
+    reply.sendFile('sw.js')
   }
 })
 
