@@ -4,6 +4,7 @@ const preLoad = function () {
   return caches.open('winnipeg-offline').then(function (cache) {
     return cache.addAll([
       '/offline.html',
+      '/favicon.ico',
       '/css.css'
     ])
   })
