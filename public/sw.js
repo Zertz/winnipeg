@@ -11,6 +11,8 @@ const preLoad = function () {
 }
 
 self.addEventListener('install', function (event) {
+  self.skipWaiting()
+
   event.waitUntil(
     preLoad()
   )
