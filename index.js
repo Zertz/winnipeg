@@ -51,6 +51,19 @@ fastify.route({
 
 fastify.route({
   method: 'GET',
+  url: '/icons/:icon',
+  schema: {
+    params: {
+      icon: { type: 'string' }
+    }
+  },
+  handler: function (request, reply) {
+    reply.sendFile(`/icons/${request.params.icon}`)
+  }
+})
+
+fastify.route({
+  method: 'GET',
   url: '/favicon.ico',
   handler: function (request, reply) {
     reply.sendFile('favicon.ico')
