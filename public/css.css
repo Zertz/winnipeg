@@ -122,7 +122,7 @@ html, body {
   left: 100%;
 }
 
-form {
+form, .offline {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -218,6 +218,18 @@ form button.share {
 form button.share:hover {
   color: #BBDEFB;
   cursor: pointer;
+}
+
+.offline .shrug {
+  font-size: 2em;
+  font-weight: 100;
+  margin-bottom: calc(0.5em + 1vh);
+}
+
+.offline h2 {
+  font-weight: 100;
+  font-size: 1.5em;
+  margin: 0;
 }
 
 footer {
