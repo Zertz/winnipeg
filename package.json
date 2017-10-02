@@ -20,8 +20,8 @@
   "homepage": "https://github.com/Zertz/winnipeg#readme",
   "dependencies": {
     "aws-sdk": "^2.125.0",
-    "fastify": "^0.28.0",
-    "fastify-static": "^0.1.0",
+    "fastify": "^0.29.0",
+    "fastify-static": "^0.2.0",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
