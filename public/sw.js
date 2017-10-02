@@ -18,10 +18,10 @@ self.addEventListener('install', function (event) {
 const checkResponse = function (request) {
   return new Promise(function (resolve, reject) {
     fetch(request).then(function (response) {
-      if (response.status !== 404) {
-        resolve(response)
+      if (response.status === 404) {
+        reject(new Error('Not Found'))
       } else {
-        reject()
+        resolve(response)
       }
     }, reject)
   })
