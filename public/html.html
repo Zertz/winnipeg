@@ -27,21 +27,23 @@
       <a href="https://github.com/Zertz/winnipeg">powered by winnipeg</a>
     </footer>
     <script>
-      if (!navigator.serviceWorker) {
-        return;
-      }
+      (function () {
+        if (!navigator.serviceWorker) {
+          return;
+        }
 
-      if (navigator.serviceWorker.controller) {
-        console.info('Service worker has already been registered')
-      } else {
-        navigator.serviceWorker.register('sw.js', {
-          scope: './'
-        }).then(function (reg) {
-          console.info('Service worker has been registered for scope:' + reg.scope)
-        }).catch(function (error) {
-          console.warn('Service worker has not been registered for scope:' + reg.scope)
-        })
-      }
+        if (navigator.serviceWorker.controller) {
+          console.info('Service worker has already been registered')
+        } else {
+          navigator.serviceWorker.register('sw.js', {
+            scope: './'
+          }).then(function (reg) {
+            console.info('Service worker has been registered for scope:' + reg.scope)
+          }).catch(function (error) {
+            console.warn('Service worker has not been registered for scope:' + reg.scope)
+          })
+        }
+      })()
     </script>
     <script src="/js.js"></script>
   </body>
