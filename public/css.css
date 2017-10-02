@@ -139,7 +139,7 @@ form input, form button {
   width: 90%;
 }
 
-form input[type="text"] {
+form input[name="url"] {
   margin-bottom: 1em;
   max-width: 30em;
 }
@@ -189,11 +189,23 @@ form:not(.loading) button[type="submit"]:hover {
   cursor: pointer;
 }
 
-form input:last-child {
+form input:last-of-type {
   background-color: rgba(255, 255, 255, 0.001);
   color: #BBDEFB;
   text-align: center;
   visibility: hidden;
+}
+
+form button.share {
+  background-color: rgba(255, 255, 255, 0.001);
+  color: #E3F2FD;
+  visibility: hidden;
+  width: auto;
+}
+
+form button.share:hover {
+  color: #BBDEFB;
+  cursor: pointer;
 }
 
 footer {
