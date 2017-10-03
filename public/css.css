@@ -23,6 +23,14 @@ html, body {
   }
 }
 
+.hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+}
+
 .bg {
   transform: rotate(30deg);
   width: 100%;

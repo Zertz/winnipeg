@@ -20,9 +20,11 @@
       <div class="bg-9"></div>
     </div>
     <form action="/" method="post">
-      <input type="text" name="url" autofocus />
+      <label for="input-url" class="hidden">url to shorten</label>
+      <input type="text" id="input-url" name="url" autofocus />
       <button type="submit">make it short</button>
-      <input type="text" name="short" readonly />
+      <label for="input-short" class="hidden">shortened url</label>
+      <input type="text" id="input-short" name="short" readonly />
       <button type="button" class="share">share</button>
     </form>
     <footer>
