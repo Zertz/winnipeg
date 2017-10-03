@@ -141,13 +141,13 @@ fastify.listen(3000, function (err) {
     console.log(`server listening on ${port}`)
   } else {
     require('browser-sync')({
-        files: [
-          'public/{index,offline}.html'
-        ],
-        open: false,
-        port: port + 1,
-        proxy: `localhost:${port}`,
-        ui: false
+      files: [
+        'public/{index,offline}.html'
+      ],
+      open: false,
+      port: port + 1,
+      proxy: `localhost:${port}`,
+      ui: false
     })
   }
 })
