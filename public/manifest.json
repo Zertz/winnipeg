@@ -66,5 +66,8 @@
   }, {
     "src": "/icons/icon-310x310.png",
     "sizes": "310x310"
+  }, {
+    "src": "/icons/icon-512x512.png",
+    "sizes": "512x512"
   }]
 }
