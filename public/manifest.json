@@ -6,7 +6,7 @@
   "display": "standalone",
   "start_url": "https://nipeg.win/",
   "short_name": "winnipeg",
-  "theme_color": "transparent",
+  "theme_color": "#2196F3",
   "description": "nipeg.win - make short links",
   "orientation": "any",
   "background_color": "#2196F3",
