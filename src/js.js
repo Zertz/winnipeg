@@ -4,6 +4,12 @@
   const short = form.querySelector('input[name="short"]')
   const share = form.querySelector('button.share')
 
+  if (navigator.serviceWorker && !navigator.serviceWorker.controller) {
+    navigator.serviceWorker.register('sw.js', {
+      scope: './'
+    })
+  }
+
   if (navigator.share) {
     share.addEventListener('click', async (e) => {
       try {

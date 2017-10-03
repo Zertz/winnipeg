@@ -17,7 +17,7 @@ fastify.route({
   method: 'GET',
   url: '/',
   handler: function (request, reply) {
-    reply.sendFile('min.html')
+    reply.sendFile('index.html')
   }
 })
 
@@ -90,22 +90,6 @@ fastify.route({
 
 fastify.route({
   method: 'GET',
-  url: '/min.css',
-  handler: function (request, reply) {
-    reply.sendFile('min.css')
-  }
-})
-
-fastify.route({
-  method: 'GET',
-  url: '/min.js',
-  handler: function (request, reply) {
-    reply.sendFile('min.js')
-  }
-})
-
-fastify.route({
-  method: 'GET',
   url: '/sw.js',
   handler: function (request, reply) {
     reply.sendFile('sw.js')
@@ -158,7 +142,7 @@ fastify.listen(3000, function (err) {
   } else {
     require('browser-sync')({
         files: [
-          'public/min.{html,js,css}'
+          'public/{index,offline}.html'
         ],
         open: false,
         port: port + 1,

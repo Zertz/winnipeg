@@ -8,14 +8,15 @@
     "lint": "standard --fix",
     "start": "NODE_ENV=production node index",
     "deploy": "now && now alias",
-    "build": "npm run build:css && npm run build:html && npm run build:js",
+    "build": "npm run build:css && npm run build:index && npm run build:offline && npm run build:js && npm run inline:index && npm run inline:offline && npm run clean",
     "build:css": "csso src/css.css public/min.css",
-    "build:html": "html-minifier --collapse-whitespace --minify-js --output public/min.html src/html.html",
+    "build:index": "html-minifier --collapse-whitespace --output public/min.index.html src/index.html",
+    "build:offline": "html-minifier --collapse-whitespace --output public/min.offline.html src/offline.html",
     "build:js": "uglifyjs src/js.js --compress --mangle --output public/min.js",
-    "watch": "npm run watch:css & npm run watch:html & npm run watch:js",
-    "watch:css": "onchange src/css.css --initial -- npm run build:css",
-    "watch:html": "onchange src/html.html --initial -- npm run build:html",
-    "watch:js": "onchange src/js.js --initial -- npm run build:js"
+    "inline:index": "inline-source --compress false --root public public/min.index.html > public/index.html",
+    "inline:offline": "inline-source --compress false --root public public/min.offline.html > public/offline.html",
+    "clean": "rimraf public/min.*",
+    "watch": "onchange src/* --initial -- npm run build"
   },
   "repository": {
     "type": "git",
@@ -37,8 +38,10 @@
     "browser-sync": "^2.18.13",
     "csso-cli": "^1.1.0",
     "html-minifier": "^3.5.5",
+    "inline-source-cli": "^1.2.0",
     "nodemon": "^1.12.1",
     "onchange": "^3.2.1",
+    "rimraf": "^2.6.2",
     "standard": "^10.0.3",
     "uglify-es": "^3.1.3"
   }
