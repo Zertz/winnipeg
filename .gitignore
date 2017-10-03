@@ -1,1 +1,4 @@
+.vscode
 node_modules
+now.json
+public/min.*

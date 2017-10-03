@@ -5,7 +5,7 @@ const preLoad = function () {
     return cache.addAll([
       '/offline.html',
       '/favicon.ico',
-      '/css.css'
+      '/min.css'
     ])
   })
 }

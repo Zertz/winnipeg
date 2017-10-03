@@ -5,6 +5,8 @@ const { URL } = require('url')
 
 const baseUrl = process.env.WINNIPEG_BASE_URL || 'http://localhost:3000'
 const storage = require('./storage/map')()
+const isProduction = process.env.NODE_ENV === 'production'
+
 
 fastify.register(require('fastify-static'), {
   root: path.join(__dirname, 'public'),
@@ -15,7 +17,7 @@ fastify.route({
   method: 'GET',
   url: '/',
   handler: function (request, reply) {
-    reply.sendFile('html.html')
+    reply.sendFile('min.html')
   }
 })
 
@@ -88,17 +90,17 @@ fastify.route({
 
 fastify.route({
   method: 'GET',
-  url: '/css.css',
+  url: '/min.css',
   handler: function (request, reply) {
-    reply.sendFile('css.css')
+    reply.sendFile('min.css')
   }
 })
 
 fastify.route({
   method: 'GET',
-  url: '/js.js',
+  url: '/min.js',
   handler: function (request, reply) {
-    reply.sendFile('js.js')
+    reply.sendFile('min.js')
   }
 })
 
@@ -145,6 +147,23 @@ fastify.route({
 })
 
 fastify.listen(3000, function (err) {
-  if (err) throw err
-  console.log(`server listening on ${fastify.server.address().port}`)
+  if (err) {
+    throw err
+  }
+
+  const port = fastify.server.address().port
+
+  if (isProduction) {
+    console.log(`server listening on ${port}`)
+  } else {
+    require('browser-sync')({
+        files: [
+          'public/min.{html,js,css}'
+        ],
+        open: false,
+        port: port + 1,
+        proxy: `localhost:${port}`,
+        ui: false
+    })
+  }
 })
