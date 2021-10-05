@@ -31,7 +31,7 @@
   "dependencies": {
     "aws-sdk": "^2.125.0",
     "fastify": "^0.29.0",
-    "fastify-static": "^0.2.0",
+    "fastify-static": "^4.2.4",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
